@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class MataKuliah extends Model
 {
-    protected $table = 'mata_kuliahs';
 
     protected $fillable =[
         'kode_mk',
