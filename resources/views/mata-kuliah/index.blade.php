@@ -65,13 +65,13 @@
                                         {{ $mk->kode_mk }}
                                     </td>
 
-                                    {{-- <td class="p-3">
-                                        {{ $mk->nama_mk }}
-                                    </td> --}}
-                                    
                                     <td class="p-3">
-                                        {{!! $mk->nama_mk !!}}
+                                        {{ $mk->nama_mk }}
                                     </td>
+
+                                    {{-- <td class="p-3">
+                                        {{!! $mk->nama_mk !!}}
+                                    </td> --}}
 
                                     <td class="p-3">
                                         {{ $mk->sks }}

@@ -4,6 +4,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MataKuliahController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 // Halaman awal
 Route::redirect('/', '/login');
@@ -52,6 +54,27 @@ Route::middleware(['auth'])->group(function () {
     });
 
 });
+
+Route::get('/demo/sqli', function (Request $request) {
+
+    $kode = $request->query('kode');
+
+    // $hasil = DB::select(
+    //     "SELECT id, kode_mk, nama_mk
+    //      FROM mata_kuliahs
+    //      WHERE kode_mk = '$kode'"
+    // );
+    
+            $hasil = DB::select(
+            'SELECT id, kode_mk, nama_mk
+            FROM mata_kuliahs
+            WHERE kode_mk = ?',
+            [$kode]
+        );
+
+    return response()->json($hasil);
+
+})->middleware('auth');
 
 // Route autentikasi Breeze
 require __DIR__.'/auth.php';
